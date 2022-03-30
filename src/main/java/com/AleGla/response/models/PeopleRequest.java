@@ -9,6 +9,11 @@ public class PeopleRequest {
 	private String DNI;
 	
 	public PeopleRequest() {}
+	
+
+	public PeopleRequest(Integer id) {
+		this.id = id;
+	}
 
 	public Integer getId() {
 		return id;

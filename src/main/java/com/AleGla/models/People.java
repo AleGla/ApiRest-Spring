@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name="people")
 public class People {
@@ -17,21 +19,27 @@ public class People {
 	private Integer id;
 	
 	@Column(name="name", nullable=false)
+	@JsonProperty("name")
 	private String name;
 	
 	@Column(name="lastname", nullable=false)
+	@JsonProperty("lastName")
 	private String lastName;
 	
 	@Column(name="age", nullable=false)
+	@JsonProperty("age")
 	private Integer age;
 	
-	@Column(name="DNI", nullable=false)
+	@Column(name="DNI", nullable = false)
+	@JsonProperty("DNI")
 	private String DNI;
 	
 	@Column(name="nationality", nullable=false)
+	@JsonProperty("nationality")
 	private String Nationality;
 	
 	@Column(name="gender", nullable=false)
+	@JsonProperty("gender")
 	private char gender;
 	
 	public People() {}
@@ -82,8 +90,8 @@ public class People {
 		return DNI;
 	}
 
-	public void setDNI(String dNI) {
-		DNI = dNI;
+	public void setDNI(String DNI) {
+		this.DNI = DNI;
 	}
 
 	public String getNationality() {
@@ -91,7 +99,7 @@ public class People {
 	}
 
 	public void setNationality(String nationality) {
-		Nationality = nationality;
+		this.Nationality = nationality;
 	}
 
 	public char getGender() {
