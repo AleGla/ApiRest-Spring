@@ -1,50 +1,40 @@
 package com.AleGla.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Entity
-@Table(name="people")
-public class People {
 
-	@Id
-	@Column(name="id_person")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PersonModify implements Serializable{
+
+	
+	private static final long serialVersionUID = 4367936426088932702L;
+	
+
+	@JsonProperty("id")
 	private Integer id;
 	
-	@Column(name="name", nullable=false)
-	@JsonProperty("name")
+	@JsonProperty("name")	
 	private String name;
 	
-	@Column(name="lastname", nullable=false)
-	@JsonProperty("lastName")
+	@JsonProperty("lastName")	
 	private String lastName;
 	
-	@Column(name="age", nullable=false)
 	@JsonProperty("age")
 	private Integer age;
 	
-	@Column(name="DNI", nullable = false)
-	@JsonProperty("DNI")
+	@JsonProperty("dni")
 	private String DNI;
 	
-	@Column(name="nationality", nullable=false)
 	@JsonProperty("nationality")
 	private String Nationality;
 	
-	@Column(name="gender", nullable=false)
 	@JsonProperty("gender")
 	private char gender;
 	
-	public People() {}
+	public PersonModify() {}
 	
-	public People(String name, String lastName, Integer age, String DNI, String Nationality, char gender) {
+	public PersonModify(String name, String lastName, Integer age, String DNI, String Nationality, char gender) {
 		this.name = name;
 		this.lastName = lastName;
 		this.age = age;
@@ -109,10 +99,5 @@ public class People {
 	public void setGender(char gender) {
 		this.gender = gender;
 	}
-
-	@Override
-	public String toString() {
-		return "[name=" + name + ", lastName=" + lastName + ", age=" + age + ", DNI=" + DNI + ", Nacionality="
-				+ Nationality + ", gender=" + gender + "]";
-	}		
+	
 }
