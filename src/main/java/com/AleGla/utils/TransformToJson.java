@@ -20,7 +20,8 @@ public class TransformToJson {
 
 	public static JSONObject toJsonPerson(Optional<Person> person) {
 		JSONObject json = new JSONObject();
-		json.put("gender", person.get().getGender());
+		if(person.get().getGender() == 70) json.put("gender", "F");
+		else json.put("gender", "M");	
 		json.put("nationality", person.get().getNationality());
 		json.put("dni", person.get().getDNI());
 		json.put("age", person.get().getAge());
@@ -32,7 +33,8 @@ public class TransformToJson {
 
 	public static JSONObject toJsonObject(Person person) {
 		JSONObject json = new JSONObject();
-		json.put("gender", person.getGender());
+		if(person.getGender() == 70) json.put("gender", "F");
+		else json.put("gender", "M");	
 		json.put("nationality", person.getNationality());
 		json.put("dni", person.getDNI());
 		json.put("age", person.getAge());

@@ -11,7 +11,7 @@ public class BadResponse {
 
 	public static String exceptionResponse(JSONObject json, HttpStatus http, ApiException ex) throws JsonProcessingException {
 		json.put("ErrorCode", ex.getCode());
-		json.put("Status", http.value());
+		json.put("status", http.value());
 		json.put("ErrorMessage", ex.getErrorMessage());		
 		LogManager.getLogger().info(json);
 		return json.toString();

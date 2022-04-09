@@ -3,6 +3,7 @@ package com.AleGla.controller;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,9 +30,9 @@ public class PersonController {
 	}
 
 	// FIND PERSON BY ID
-	@RequestMapping(value = "/search", produces = {"application/json"}, method = RequestMethod.GET)
-	public String findPersonById(@RequestBody PersonRequest personReq) throws JsonProcessingException {
-		Optional<Person> person = service.searchPerson(personReq);
+	@RequestMapping(value = "/search/{id}", produces = {"application/json"}, method = RequestMethod.GET)
+	public String findPersonById(@PathVariable("id") Integer id) throws JsonProcessingException {
+		Optional<Person> person = service.searchPerson(new PersonRequest(id));
 
 		return PersonResponse.ResponseFindPerson(person);
 	}
