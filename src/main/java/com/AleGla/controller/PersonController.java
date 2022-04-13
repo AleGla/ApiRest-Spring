@@ -2,7 +2,10 @@ package com.AleGla.controller;
 
 import java.util.Optional;
 
+import javax.annotation.security.RolesAllowed;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,19 +20,21 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 @RestController
 @RequestMapping("person")
-public class PersonController {
+public class PersonController{
 
 	@Autowired
 	private PersonService service;
-	
+
 
 	// FIND ALL PERSONS
+	@RolesAllowed("USER")
 	@RequestMapping(value = "/all", produces = {"application/json"}, method = RequestMethod.GET)
 	public String allPersons() throws JsonProcessingException {
 		return PersonResponse.ResponseFindAll(service);
 	}
 
 	// FIND PERSON BY ID
+	@RolesAllowed("USER")
 	@RequestMapping(value = "/search/{id}", produces = {"application/json"}, method = RequestMethod.GET)
 	public String findPersonById(@PathVariable("id") Integer id) throws JsonProcessingException {
 		Optional<Person> person = service.searchPerson(new PersonRequest(id));
@@ -38,6 +43,7 @@ public class PersonController {
 	}
 
 	// ADD NEW PERSON
+	@Secured("ADMIN")
 	@RequestMapping(value = "/new" , produces = {"application/json"}, method = RequestMethod.POST)
 	public String addPerson(@RequestBody Person person) throws JsonProcessingException {
 
@@ -45,6 +51,7 @@ public class PersonController {
 	}
 
 	// MODIFY PERSON
+	@RolesAllowed("ADMIN")
 	@RequestMapping(value = "/modify", produces = {"application/json"}, method = RequestMethod.PUT)
 	public String modifyPerson(@RequestBody PersonModify newPerson) throws JsonProcessingException {
 		Optional<Person> oldPerson = service.searchPerson(newPerson);
@@ -53,9 +60,12 @@ public class PersonController {
 	}
 
 	// DELETE PERSON
-	@RequestMapping(value = "/delete", produces = {"application/json"}, method = RequestMethod.DELETE)
-	public String deletePerson(@RequestBody PersonRequest personReq) throws JsonProcessingException {
+	@RolesAllowed("ADMIN")
+	@RequestMapping(value = "/delete/{idPerson}", produces = {"application/json"}, method = RequestMethod.DELETE)
+	public String deletePerson(@PathVariable("idPerson") Integer personReq) throws JsonProcessingException {
 
-		return PersonResponse.responseDeletePerson(personReq.getId(), service);
+		return PersonResponse.responseDeletePerson(personReq, service);
 	}
+
+
 }

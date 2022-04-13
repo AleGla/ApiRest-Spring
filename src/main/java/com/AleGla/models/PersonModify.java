@@ -23,7 +23,7 @@ public class PersonModify implements Serializable{
 	@JsonProperty("age")
 	private Integer age;
 	
-	@JsonProperty("dni")
+	@JsonProperty("DNI")
 	private String DNI;
 	
 	@JsonProperty("nationality")

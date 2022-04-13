@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 @Table(name="person")
 public class Person implements Serializable{
@@ -32,7 +36,7 @@ public class Person implements Serializable{
 	@Column(name="age")
 	private Integer age;
 	
-	@Column(name="dni")
+	@Column(name="DNI") @JsonProperty("DNI")
 	private String DNI;
 	
 	@Column(name="nationality")
@@ -77,8 +81,8 @@ public class Person implements Serializable{
 		return DNI;
 	}
 
-	public void setDNI(String dNI) {
-		DNI = dNI;
+	public void setDNI(String DNI) {
+		this.DNI = DNI;
 	}
 
 	public String getNationality() {

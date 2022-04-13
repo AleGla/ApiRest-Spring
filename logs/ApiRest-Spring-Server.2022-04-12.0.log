@@ -1,0 +1,26 @@
+18:13:29.625 [restartedMain] INFO  com.AleGla.PeopleApiRestApplication - Starting PeopleApiRestApplication using Java 14.0.2 on DESKTOP-3H80VIV with PID 11500 (C:\Users\comeo\Desktop\ProjectAPI\ApiRest-Spring\target\classes started by comeo in C:\Users\comeo\Desktop\ProjectAPI\ApiRest-Spring)
+18:13:29.626 [restartedMain] INFO  com.AleGla.PeopleApiRestApplication - No active profile set, falling back to 1 default profile: "default"
+18:13:30.182 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+18:13:30.217 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 2 JPA repository interfaces.
+18:13:30.436 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+18:13:30.437 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+18:13:30.438 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+18:13:30.439 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.60]
+18:13:30.507 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+18:13:30.508 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 871 ms
+18:13:30.586 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+18:13:30.608 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Starting...
+18:13:30.651 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Start completed.
+18:13:30.651 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+18:13:30.757 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+18:13:30.758 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+18:13:31.105 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+18:13:31.305 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+18:13:31.314 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+18:13:31.321 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+18:13:31.330 [restartedMain] INFO  com.AleGla.PeopleApiRestApplication - Started PeopleApiRestApplication in 1.807 seconds (JVM running for 293.635)
+18:13:31.333 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+18:13:37.919 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+18:13:37.920 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+18:13:37.921 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+18:13:37.948 [http-nio-8080-exec-2] INFO  com.AleGla.response.PersonResponse - Function = searchPerson | Response -> {"person":{"lastName":"CHANGE","gender":"F","nationality":"CHANGE","name":"CHANGE","id":12,"DNI":"30194231","age":10},"function":"searchPerson","message":"The Person was found successful","status":200}

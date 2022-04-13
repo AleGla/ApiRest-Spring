@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 import org.apache.logging.log4j.LogManager;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import com.AleGla.exception.CustomException;
 import com.AleGla.models.Person;
@@ -19,6 +21,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class PersonResponse {
 
+	static Logger logger = LoggerFactory.getLogger(PersonResponse.class);
+	
 	// FIND ALL PERSONS
 	public static String ResponseFindAll(PersonService service) throws JsonProcessingException {
 		List<Person> listPersons = service.listPersons();	
@@ -31,8 +35,9 @@ public class PersonResponse {
 		json.put("persons", listPersons);
 		json.put("status", HttpStatus.OK.value());
 		json.put("message", "List of people was found successful");
-		json.put("function", "listAllPeople");		
-		LogManager.getLogger().info("Function = listAllPeople | Response -> " + json);
+		json.put("function", "listAllPeople");				
+		logger.info("Function = listAllPeople | Response -> " + json);
+		
 		return json.toString();
 	}
 

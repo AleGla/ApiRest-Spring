@@ -23,7 +23,7 @@ public class TransformToJson {
 		if(person.get().getGender() == 70) json.put("gender", "F");
 		else json.put("gender", "M");	
 		json.put("nationality", person.get().getNationality());
-		json.put("dni", person.get().getDNI());
+		json.put("DNI", person.get().getDNI());
 		json.put("age", person.get().getAge());
 		json.put("lastName", person.get().getLastName());
 		json.put("name", person.get().getName());
@@ -36,7 +36,7 @@ public class TransformToJson {
 		if(person.getGender() == 70) json.put("gender", "F");
 		else json.put("gender", "M");	
 		json.put("nationality", person.getNationality());
-		json.put("dni", person.getDNI());
+		json.put("DNI", person.getDNI());
 		json.put("age", person.getAge());
 		json.put("lastName", person.getLastName());
 		json.put("name", person.getName());
